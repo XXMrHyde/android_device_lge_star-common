@@ -85,7 +85,24 @@ PRODUCT_PACKAGES += Torch
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp,adb
+	persist.sys.usb.config=mass_storage,adb
+
+# Dark Jelly 2X Edition additions
+
+# Copy over the Dark Jelly 2X Edition changelog to the device
+PRODUCT_COPY_FILES += \
+    device/lge/star-common/CHANGELOG-DJE.txt:system/etc/CHANGELOG-DJE.txt
+
+# Dark Jelly 2X Edition Property Overrides
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.xxmrhyde.version=Dark-Jelly-2X-Edition-(Build-0) \
+    updateme.name=Dark-Jelly-2X-Edition \
+    updateme.version=0.0.0 \
+    updateme.urlcheck=http://<-add-url-here-> \
+    updateme.reboottype=2 \
+    updateme.disableinstalledapps=1 \
+    updateme.disablescripts=1
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_MANUFACTURER := LGE
